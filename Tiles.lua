@@ -11,10 +11,103 @@ Tiles.UpdateMovement = function()
     Tiles.Head:MoveTile()
     if Tiles.BodyCount > 0 then
         for i = Tiles.BodyCount, 1, -1 do
-            --Tiles.Body[i][1]:MoveTile()
+            for i = Tiles.BodyCount, 1, -1 do
+                if Tiles.Body[i][1] == Tiles.Body[1][1] then
+                    if love.keyboard.isDown("w") then 
+                        if Tiles.Body[i][1].x > Tiles.Head.x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x - .5
+                        end
+                        if Tiles.Body[i][1].x < Tiles.Head.x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x + .5
+                        end
+                        if Tiles.Body[i][1].y > Tiles.Head.y + Tiles.Head.h then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y - 1
+                        end
+                    end
+                    if love.keyboard.isDown("s") then 
+                        if Tiles.Body[i][1].x > Tiles.Head.x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x - .5
+                        end
+                        if Tiles.Body[i][1].x < Tiles.Head.x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x + .5
+                        end
+                        if Tiles.Body[i][1].y < Tiles.Head.y - Tiles.Head.h then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y + 1
+                        end
+                    end
+                    if love.keyboard.isDown("a") then 
+                        if Tiles.Body[i][1].y > Tiles.Head.y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y - .5
+                        end
+                        if Tiles.Body[i][1].y < Tiles.Head.y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y + .5
+                        end
+                        if Tiles.Body[i][1].x > Tiles.Head.x + Tiles.Head.h then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x - 1
+                        end
+                    end
+                    if love.keyboard.isDown("d") then 
+                        if Tiles.Body[i][1].y > Tiles.Head.y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y - .5
+                        end
+                        if Tiles.Body[i][1].y < Tiles.Head.y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y + .5
+                        end
+                        if Tiles.Body[i][1].x < Tiles.Head.x - Tiles.Head.h then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x + 1
+                        end
+                    end
+                else
+                    if love.keyboard.isDown("w") then 
+                        if Tiles.Body[i][1].x > Tiles.Body[i -1][1].x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x - .5
+                        end
+                        if Tiles.Body[i][1].x < Tiles.Body[i -1][1].x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x + .5
+                        end
+                        if Tiles.Body[i][1].y > Tiles.Body[i -1][1].y + Tiles.Body[i -1][1].h then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y - 1
+                        end
+                    end
+                    if love.keyboard.isDown("s") then 
+                        if Tiles.Body[i][1].x > Tiles.Body[i -1][1].x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x - .5
+                        end
+                        if Tiles.Body[i][1].x < Tiles.Body[i -1][1].x then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x + .5
+                        end
+                        if Tiles.Body[i][1].y < Tiles.Body[i -1][1].y - Tiles.Body[i -1][1].h then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y + 1
+                        end
+                    end
+                    if love.keyboard.isDown("a") then 
+                        if Tiles.Body[i][1].y > Tiles.Body[i -1][1].y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y - .5
+                        end
+                        if Tiles.Body[i][1].y < Tiles.Body[i -1][1].y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y + .5
+                        end
+                        if Tiles.Body[i][1].x > Tiles.Body[i -1][1].x + Tiles.Body[i -1][1].h then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x - 1
+                        end
+                    end
+                    if love.keyboard.isDown("d") then 
+                        if Tiles.Body[i][1].y > Tiles.Body[i -1][1].y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y - .5
+                        end
+                        if Tiles.Body[i][1].y < Tiles.Body[i -1][1].y then
+                            Tiles.Body[i][1].y = Tiles.Body[i][1].y + .5
+                        end
+                        if Tiles.Body[i][1].x < Tiles.Body[i -1][1].x - Tiles.Body[i -1][1].h then
+                            Tiles.Body[i][1].x = Tiles.Body[i][1].x + 1
+                        end
+                    end
+                end
+            end
         end
     end
 end
+
 
 
 Tiles.AddBody = function()

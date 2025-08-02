@@ -18,6 +18,7 @@ function tile.new(settings)
 end
 
 function tile:draw()
+  love.graphics.setColor({0,1,0,1})
   love.graphics.rectangle("fill", self.x, self.y, self.w, self.h)
 end
 
