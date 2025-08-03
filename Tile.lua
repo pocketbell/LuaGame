@@ -25,14 +25,11 @@ end
 tile.MoveTile = function(self)
 if love.keyboard.isDown("w") then
         self.y = self.y - 1
-    end
-    if love.keyboard.isDown("s") then
+elseif love.keyboard.isDown("s") then
         self.y = self.y + 1
-    end
-    if love.keyboard.isDown("a") then
+elseif love.keyboard.isDown("a") then
         self.x = self.x - 1
-    end
-    if love.keyboard.isDown("d") then
+elseif love.keyboard.isDown("d") then
         self.x = self.x + 1
     end
 end
