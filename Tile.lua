@@ -6,8 +6,8 @@ function tile.new(settings)
 
   instance.x = settings.x or 0
   instance.y = settings.y or 0
-  instance.w = settings.w or 50
-  instance.h = settings.h or 50
+  instance.w = settings.w or 25
+  instance.h = settings.h or 25
   --[[
   instance.x = 0
   instance.y = 0
@@ -19,7 +19,7 @@ end
 
 function tile:draw()
   love.graphics.setColor({0,1,0,1})
-  love.graphics.rectangle("fill", self.x, self.y, self.w, self.h)
+  love.graphics.circle("fill", self.x, self.y, self.w)
 end
 
 tile.MoveTile = function(self)
